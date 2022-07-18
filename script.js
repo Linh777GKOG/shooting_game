@@ -404,19 +404,53 @@ class Background {
   }
 }
 class Explosion {
-        constructor(game, x, y){
-            this.game = game;
-            this.frameX = 0;
-            this.spriteWidth = 200;
-            this.spriteHeight = 200;
-            this.width = this.spriteWidth;
-            this.height = this.spriteHeight;
-            this.x = x - this.width * 0.5;
-            this.y = y - this.height * 0.5;
-            this.fps = 30;
-            this.timer = 0;
-            this.interval = 1000/this.fps;
-            this.markedForDeletion = false;
-            this.maxFrame = 8;
-        }
-        
+  uctor(game, x, y) { 
+ thie = game;
+thismeX = 0;
+his.iteWidth = 200;
+is.siteHeight = 200;
+.width = this.spriteWidth;
+    ght = this.spriteHeight;
+   t x - this.width * 0.5;
+  th y - this.height * 0.5;
+ thi = 30;
+his.er = 0;
+is.ierval = 1000 / this. f ps;
+his.kedForDeletion = false;
+is.mFrame = 8;
+
+
+updeltaTime) { 
+ thi= this.game.speed;
+if (.timer > this.interval) { 
+  thisX++;
+       = 0;
+    
+       += deltaTime;
+    
+    .frameX > this.maxFrame) this.markedForDeletion = true;
+  
+  ontext) { 
+    drawImage(
+      
+     
+     
+     
+     
+     
+     
+     
+     
+    );
+this.image,
+  this.frameX * this.spriteWidth,
+      0,
+      this.spriteWidth,
+      this.spriteHeight,
+      this.x,
+      this.y,
+      this.width,
+      this.height
+    );
+  }
+}
