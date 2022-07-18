@@ -246,5 +246,22 @@ window.addEventListener('load', function () {
         this.height
       );
     }
+    shootTop() {
+      if (this.game.ammo > 0) {
+        this.projectiles.push(
+          new Projectile(this.game, this.x + 80, this.y + 30)
+        );
+        this.game.ammo--;
+      }
+      this.game.sound.shot();
+      if (this.powerUp) this.shootBottom();
+    }
+    shootBottom() {
+      if (this.game.ammo > 0) {
+        this.projectiles.push(
+          new Projectile(this.game, this.x + 80, this.y + 175)
+        );
+      }
+    }
   }
 });
