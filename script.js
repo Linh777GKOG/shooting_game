@@ -597,3 +597,17 @@ this.image,
                 this.enemyTimer += deltaTime;
             }
         }
+         draw(context){
+            this.background.draw(context);
+            this.ui.draw(context);
+            this.player.draw(context);
+            this.shield.draw(context);
+            this.particles.forEach(particle => particle.draw(context));
+            this.enemies.forEach(enemy => {
+                enemy.draw(context);
+            });
+            this.explosions.forEach(explosion => {
+                explosion.draw(context);
+            });
+            this.background.layer4.draw(context);
+        }
