@@ -611,3 +611,18 @@ this.image,
             });
             this.background.layer4.draw(context);
         }
+        addEnemy(){
+            const randomize = Math.random();
+            if (randomize < 0.3) this.enemies.push(new Angler1(this));
+            else if (randomize < 0.6) this.enemies.push(new Angler2(this));
+            else if (randomize < 0.9) this.enemies.push(new Drone(this));
+            else this.enemies.push(new LuckyFish(this));
+        }
+        addExplosion(enemy){
+            const randomize = Math.random();
+            if (randomize < 0.5) {
+                this.explosions.push(new SmokeExplosion(this, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
+            } else {
+                this.explosions.push(new FireExplosion(this, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
+            }
+        }
