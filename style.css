@@ -42,3 +42,11 @@
 #shield {
   display: none;
 }
+
+.info {
+  padding: 10px;
+  position: relative;
+  z-index: 100;
+  text-shadow: 1px 1px 0 white;
+  pointer-events: none;
+}
