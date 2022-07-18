@@ -348,3 +348,17 @@ class LuckyFish extends Enemy {
     this.type = 'lucky';
   }
 }
+
+class Drone extends Enemy {
+  consuctor(game, x, y) {
+    super(gme);
+    this.width = 115;
+    thisght = 95;
+    this.Math.random() * (this.game.height * 0.95 - this.height);
+    this.ige = document.getElementById('drone');
+    this.frmeY = Math.floor(Math.random() * 2);
+    this.lives = 3;
+    thisre = this.lives;
+    this.edX = Math.random() * -4.2 - 0.5;
+  }
+}
