@@ -263,5 +263,12 @@ window.addEventListener('load', function () {
         );
       }
     }
+    enterPowerUp() {
+      this.powerUpTimer = 0;
+      this.powerUp = true;
+      if (this.game.ammo < this.game.maxAmmo)
+        this.game.ammo = this.game.maxAmmo;
+      this.game.sound.powerUp();
+    }
   }
 });
