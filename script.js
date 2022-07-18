@@ -191,5 +191,42 @@ window.addEventListener('load', function () {
       this.powerUpTimer = 0;
       this.powerUpLimit = 10000;
     }
+    update(deltaTime) {
+      if (this.game.keys.includes('ArrowUp')) this.speedY = -this.maxSpeed;
+      else if (this.game.keys.includes('ArrowDown'))
+        this.speedY = this.maxSpeed;
+      else this.speedY = 0;
+      this.y += this.speedY;
+      // vertical boundaries
+      if (this.y > this.game.height - this.height * 0.5)
+        this.y = this.game.height - this.height * 0.5;
+      else if (this.y < -this.height * 0.5) this.y = -this.height * 0.5;
+      // handle projectiles
+      this.projectiles.forEach((projectile) => {
+        projectile.update();
+      });
+      this.projectiles = this.projectiles.filter(
+        (projectile) => !projectile.markedForDeletion
+      );
+      // sprite animation
+      if (this.frameX < this.maxFrame) {
+        this.frameX++;
+      } else {
+        this.frameX = 0;
+      }
+      // power up
+      if (this.powerUp) {
+        if (this.powerUpTimer > this.powerUpLimit) {
+          this.powerUpTimer = 0;
+          this.powerUp = false;
+          this.frameY = 0;
+          this.game.sound.powerDown();
+        } else {
+          this.powerUpTimer += deltaTime;
+          this.frameY = 1;
+          this.game.ammo += 0.1;
+        }
+      }
+    }
   }
 });
