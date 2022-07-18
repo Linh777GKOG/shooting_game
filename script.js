@@ -173,4 +173,23 @@ window.addEventListener('load', function () {
       context.restore();
     }
   }
+  class Player {
+    constructor(game) {
+      this.game = game;
+      this.width = 120;
+      this.height = 190;
+      this.x = 20;
+      this.y = 130;
+      this.frameX = 0;
+      this.frameY = 0;
+      this.maxFrame = 37;
+      this.speedY = 0;
+      this.maxSpeed = 3;
+      this.projectiles = [];
+      this.image = document.getElementById('player');
+      this.powerUp = false;
+      this.powerUpTimer = 0;
+      this.powerUpLimit = 10000;
+    }
+  }
 });
