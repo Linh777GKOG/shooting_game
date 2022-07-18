@@ -589,3 +589,11 @@ this.image,
                     }
                 })
             });
+             this.enemies = this.enemies.filter(enemy => !enemy.markedForDeletion);
+            if (this.enemyTimer > this.enemyInterval && !this.gameOver){
+                this.addEnemy();
+                this.enemyTimer = 0;
+            } else { 
+                this.enemyTimer += deltaTime;
+            }
+        }
