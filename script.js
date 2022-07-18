@@ -26,3 +26,12 @@ window.addEventListener('load', function(){
             });
         }
     }
+    class SoundController {
+        constructor(){
+            this.powerUpSound = document.getElementById('powerup');
+            this.powerDownSound = document.getElementById('powerdown');
+            this.explosionSound = document.getElementById('explosion');
+            this.shotSound = document.getElementById('shot');
+            this.hitSound = document.getElementById('hit');
+            this.shieldSound = document.getElementById('shieldSound');
+        }}
