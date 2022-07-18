@@ -502,3 +502,11 @@ this.image,
                 context.font = '25px ' + this.fontFamily;
                 context.fillText(message2, this.game.width * 0.5, this.game.height * 0.5 + 20);
             }
+             // ammo
+            if (this.game.player.powerUp) context.fillStyle = '#ffffbd';
+            for (let i = 0; i < this.game.ammo; i++){
+                context.fillRect(20 + 5 * i, 50, 3, 20);
+            }
+            context.restore();
+        }
+    }
