@@ -567,3 +567,25 @@ this.image,
                     if (enemy.type === 'lucky') this.player.enterPowerUp();
                     else if (!this.gameOver) this.score--;
                 }
+                 this.player.projectiles.forEach(projectile => {
+                    if (this.checkCollision(projectile, enemy)){
+                        enemy.lives--;
+                        projectile.markedForDeletion = true;
+                        this.particles.push(new Particle(this, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
+                        if (enemy.lives <= 0){
+                            this.particles.push(new Particle(this, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
+                            enemy.markedForDeletion = true;
+                            this.addExplosion(enemy);
+                            this.sound.explosion();
+                            if (enemy.type === 'moon') this.player.enterPowerUp();
+                            if (enemy.type === 'hive'){
+                                for (let i = 0; i < 5; i++){
+                                    this.enemies.push(new Drone(this, enemy.x + Math.random() * enemy.width, enemy.y + Math.random() * enemy.height * 0.5));
+                                }
+                            }
+                            if (!this.gameOver) this.score += enemy.score;
+                            /* if (this.score > this.winningScore) this.gameOver = true; */
+                        }
+                    }
+                })
+            });
