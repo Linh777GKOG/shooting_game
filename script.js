@@ -626,3 +626,10 @@ this.image,
                 this.explosions.push(new FireExplosion(this, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
             }
         }
+            checkCollision(rect1, rect2){
+            return (        rect1.x < rect2.x + rect2.width &&
+                            rect1.x + rect1.width > rect2.x &&
+                            rect1.y < rect2.y + rect2.height &&
+                            rect1.height + rect1.y > rect2.y)
+        }
+    }
